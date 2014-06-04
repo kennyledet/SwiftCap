@@ -26,7 +26,7 @@ class Recorder : NSObject, AVCaptureFileOutputRecordingDelegate {
     }
     
     func startCapture(outputPath: NSURL, recordTime: NSTimeInterval) {
-        mSession.sessionPreset = AVCaptureSessionPresetMedium;
+        mSession.sessionPreset = AVCaptureSessionPresetHigh;
         
         var screenInput = AVCaptureScreenInput(displayID: mMainDisplayId)
         if screenInput == nil {
