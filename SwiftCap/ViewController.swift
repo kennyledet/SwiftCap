@@ -9,7 +9,23 @@
 import Cocoa
 
 class ViewController: NSViewController {
-                            
+    @IBOutlet var startRecord : NSButtonCell
+    @IBOutlet var stopRecord : NSButton
+    
+    var recorder = Recorder()
+    
+    @IBAction func startRecord(sender : NSButton) {
+        let outputPath = NSURL.fileURLWithPath("/Users/user/Desktop/test.mov")
+        let recordTime = NSTimeInterval(5)
+        
+        recorder.startCapture(outputPath, recordTime: recordTime)
+    }
+    
+    
+    @IBAction func stopRecord(sender : AnyObject) {
+        recorder.stopCapture()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

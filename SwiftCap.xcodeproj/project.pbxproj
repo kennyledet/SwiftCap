@@ -13,6 +13,7 @@
 		CE0DA6AE193F85790015E437 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0DA6AD193F85790015E437 /* Images.xcassets */; };
 		CE0DA6B1193F85790015E437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0DA6AF193F85790015E437 /* Main.storyboard */; };
 		CE0DA6BD193F85790015E437 /* SwiftCapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0DA6BC193F85790015E437 /* SwiftCapTests.swift */; };
+		CE0DA6C7193F85E90015E437 /* ScreenRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0DA6C6193F85E90015E437 /* ScreenRecorder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		CE0DA6B6193F85790015E437 /* SwiftCapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftCapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0DA6BB193F85790015E437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE0DA6BC193F85790015E437 /* SwiftCapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftCapTests.swift; sourceTree = "<group>"; };
+		CE0DA6C6193F85E90015E437 /* ScreenRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenRecorder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		CE0DA6A4193F85790015E437 /* SwiftCap */ = {
 			isa = PBXGroup;
 			children = (
+				CE0DA6C6193F85E90015E437 /* ScreenRecorder.swift */,
 				CE0DA6A9193F85790015E437 /* ViewController.swift */,
 				CE0DA6AB193F85790015E437 /* AppDelegate.swift */,
 				CE0DA6AD193F85790015E437 /* Images.xcassets */,
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE0DA6AC193F85790015E437 /* AppDelegate.swift in Sources */,
+				CE0DA6C7193F85E90015E437 /* ScreenRecorder.swift in Sources */,
 				CE0DA6AA193F85790015E437 /* ViewController.swift in Sources */,
 				CE0DA6A8193F85790015E437 /* main.swift in Sources */,
 			);
