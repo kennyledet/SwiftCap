@@ -34,16 +34,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QIZ-RX-tMq">
-                                <rect key="frame" x="166" y="181" width="137" height="32"/>
-                                <buttonCell key="cell" type="push" title="Start Recording" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wfe-na-HGJ">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="startRecord:" target="XfG-lQ-9wD" id="8GH-qN-WvQ"/>
-                                </connections>
-                            </button>
                             <button appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wiM-yz-gpk">
                                 <rect key="frame" x="166" y="133" width="137" height="32"/>
                                 <buttonCell key="cell" type="push" title="Stop Recording" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fGu-QZ-BFe">
@@ -54,9 +44,39 @@
                                     <action selector="stopRecord:" target="XfG-lQ-9wD" id="X7R-gq-EeE"/>
                                 </connections>
                             </button>
+                            <pathControl appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAR-1B-EGC">
+                                <rect key="frame" x="20" y="258" width="415" height="22"/>
+                                <pathCell key="cell" selectable="YES" editable="YES" alignment="left" id="s6e-fG-xxI">
+                                    <font key="font" metaFont="system"/>
+                                    <url key="url" string="file:////home/"/>
+                                    <color key="backgroundColor" red="0.89803921568627454" green="0.92549019607843142" blue="0.97254901960784312" alpha="1" colorSpace="deviceRGB"/>
+                                </pathCell>
+                            </pathControl>
+                            <button appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QIZ-RX-tMq">
+                                <rect key="frame" x="14" y="133" width="137" height="32"/>
+                                <buttonCell key="cell" type="push" title="Start Recording" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wfe-na-HGJ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startRecord:" target="XfG-lQ-9wD" id="8GH-qN-WvQ"/>
+                                </connections>
+                            </button>
+                            <button appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eHX-BG-Wl6">
+                                <rect key="frame" x="20" y="233" width="84" height="17"/>
+                                <buttonCell key="cell" type="inline" title="Choose Path" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="p3H-uH-yFg">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="smallSystemBold"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="choosePath:" target="XfG-lQ-9wD" id="qs3-db-Kxz"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="mPathCtrl" destination="FAR-1B-EGC" id="taL-KI-Vh4"/>
+                        <outlet property="pathCtrl" destination="m2S-Jp-Qdl" id="rfw-E6-dxr"/>
                         <outlet property="startRecord" destination="Wfe-na-HGJ" id="LH5-3N-k4R"/>
                         <outlet property="stopRecord" destination="wiM-yz-gpk" id="ShZ-US-gCJ"/>
                     </connections>

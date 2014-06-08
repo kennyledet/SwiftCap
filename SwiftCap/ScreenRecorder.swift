@@ -13,21 +13,22 @@ class Recorder : NSObject, AVCaptureFileOutputRecordingDelegate {
     let mFileManager = NSFileManager.defaultManager()
     
     // AVCaptureSession holds inputs and outputs for real-time capture
-    var mSession = AVCaptureSession()
-    var mScreenCapOutput = AVCaptureMovieFileOutput()
-    
+    let mSession = AVCaptureSession()
+    let mScreenCapOutput = AVCaptureMovieFileOutput()
+    var mOutputPath = ""
     // Just capture main display for now
     let mMainDisplayId = CGMainDisplayID()
     
-    var mTimer : NSTimer = NSTimer()
+    let mTimer : NSTimer = NSTimer()
     
-    var mOutputPath = ""
     
     init() {
 
     }
     
-    func startCapture(outputPath: NSURL, recordTime: NSTimeInterval) {
+    func startCapture(startPath: NSURL, recordTime: NSTimeInterval) {
+        var outputPath = startPath.URLByAppendingPathComponent("test").URLByAppendingPathExtension("mov")
+        
         mSession.sessionPreset = AVCaptureSessionPresetHigh;
         
         var screenInput = AVCaptureScreenInput(displayID: mMainDisplayId)

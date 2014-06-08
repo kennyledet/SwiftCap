@@ -9,29 +9,37 @@
 import Cocoa
 
 class ViewController: NSViewController {
-    @IBOutlet var startRecord : NSButtonCell
-    @IBOutlet var stopRecord : NSButton
     
-    let recorder = Recorder()
+    @IBOutlet var mPathCtrl : NSPathControl
+    var mPath : NSURL = NSURL.fileURLWithPath(NSHomeDirectory().stringByAppendingPathComponent("/Desktop/"))
+    let mRecorder = Recorder()
+
     
     @IBAction func startRecord(sender : NSButton) {
-        let outputPath = NSURL.fileURLWithPath("/Users/user/Desktop/test.mov")
+
         let recordTime = NSTimeInterval(5)
         
-        recorder.startCapture(outputPath, recordTime: recordTime)
+        mRecorder.startCapture(mPath, recordTime: recordTime)
     }
     
     @IBAction func stopRecord(sender : AnyObject) {
-        recorder.stopCapture()
-        
-        recorder.convert(nil)
+        mRecorder.stopCapture()
+        mRecorder.convert(nil)
+    }
+    
+    @IBAction func choosePath(sender : AnyObject) {
+        let openPanel = NSOpenPanel()
+        openPanel.canChooseDirectories = true
+        openPanel.canCreateDirectories = false
+        openPanel.canChooseFiles = false
+        if openPanel.runModal() == NSOKButton {
+            mPathCtrl.URL = openPanel.URL
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-                                    
+        mPathCtrl.URL = mPath
     }
 
     override var representedObject: AnyObject? {
