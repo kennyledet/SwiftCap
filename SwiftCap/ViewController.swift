@@ -23,6 +23,7 @@ class ViewController: NSViewController {
     
     @IBAction func stopRecord(sender : AnyObject) {
         recorder.stopCapture()
+        
         recorder.convert(nil)
     }
     
