@@ -21,6 +21,8 @@ class Recorder : NSObject, AVCaptureFileOutputRecordingDelegate {
     
     var mTimer : NSTimer = NSTimer()
     
+    var mOutputPath = ""
+    
     init() {
 
     }
@@ -46,11 +48,11 @@ class Recorder : NSObject, AVCaptureFileOutputRecordingDelegate {
         // TODO: Check for file overwrites
         
         mScreenCapOutput.startRecordingToOutputFileURL(outputPath, recordingDelegate: self)
+        mOutputPath = outputPath.path
         
         //let selector = Selector("finishRecord:")
-        
         //mTimer = NSTimer.scheduledTimerWithTimeInterval(recordTime, target: self, selector: selector, userInfo: nil, repeats: false)
-//        mTimer.fire()
+        //mTimer.fire()
         
     }
     
@@ -59,12 +61,24 @@ class Recorder : NSObject, AVCaptureFileOutputRecordingDelegate {
     }
     
     func finishRecord(timer: NSTimer) {
-        mScreenCapOutput.stopRecording()
+        stopCapture()
         mTimer.invalidate()
+    }
+    
+    func convert(type: String?) {
+        let tempCmd = "ffmpeg -i \(mOutputPath) -c:v libvpx -crf 10 -b:v 1M -c:a libvorbis /Users/user/Desktop/test.webm"
+        let task = NSTask()
+        task.launchPath = "/usr/bin/ffmpeg"
+        task.arguments = ["-i", "\(mOutputPath)", "-c:v", "libvpx", "-crf", "10", "-b:v", "1M", "-c:a", "libvorbis", "/Users/user/Desktop/test.webm"]
+        task.launch()
+
+
+        
     }
     
     
     // AVCaptureFileOutputRecording Delegate methods
+    /* Called when recording is finished */
     func captureOutput(captureOutput: AVCaptureFileOutput!, didFinishRecordingToOutputFileAtURL outputFileURL: NSURL!, fromConnections connections: AnyObject[]!, error: NSError!) {
         if error != nil {
             NSLog("Stopped recording due to error: \(error.description)")
@@ -72,12 +86,6 @@ class Recorder : NSObject, AVCaptureFileOutputRecordingDelegate {
         mSession.stopRunning()
     }
 }
-
-//let outputPath = NSURL.fileURLWithPath("/Users/user/Desktop/test.mov")
-//let recordTime = NSTimeInterval(5)
-
-//var recorder = Recorder()
-//recorder.screenCapture(outputPath, recordTime: recordTime)
 
 
 

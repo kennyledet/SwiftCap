@@ -12,7 +12,7 @@ class ViewController: NSViewController {
     @IBOutlet var startRecord : NSButtonCell
     @IBOutlet var stopRecord : NSButton
     
-    var recorder = Recorder()
+    let recorder = Recorder()
     
     @IBAction func startRecord(sender : NSButton) {
         let outputPath = NSURL.fileURLWithPath("/Users/user/Desktop/test.mov")
@@ -21,9 +21,9 @@ class ViewController: NSViewController {
         recorder.startCapture(outputPath, recordTime: recordTime)
     }
     
-    
     @IBAction func stopRecord(sender : AnyObject) {
         recorder.stopCapture()
+        recorder.convert(nil)
     }
     
     override func viewDidLoad() {

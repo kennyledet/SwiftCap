@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "SwiftCap/ScreenRecorder.swift"
+            timestampString = "423941271.836104"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "startCapture(_:recordTime:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftCap.Recorder.startCapture (SwiftCap.Recorder)(ObjectiveC.NSURL, recordTime : Swift.Double) -&gt; ()"
+                  moduleName = "SwiftCap"
+                  urlString = "file:///Users/user/Code/Xcode%20Projects/SwiftCap/SwiftCap/ScreenRecorder.swift"
+                  timestampString = "423942419.995934"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "3260">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "SwiftCap.Recorder.startCapture (SwiftCap.Recorder)(ObjectiveC.NSURL, recordTime : Swift.Double) -&gt; ()"
+                  moduleName = "SwiftCap"
+                  urlString = "file:///Users/user/Code/Xcode%20Projects/SwiftCap/SwiftCap/ScreenRecorder.swift"
+                  timestampString = "423942419.996159"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "3296">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
