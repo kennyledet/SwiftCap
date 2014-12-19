@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="14A238x" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14C81f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6154.17"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6724"/>
     </dependencies>
     <scenes>
-        <!--Window Controller - Window-->
+        <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -34,8 +34,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wiM-yz-gpk">
-                                <rect key="frame" x="166" y="133" width="137" height="32"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wiM-yz-gpk">
+                                <rect key="frame" x="14" y="100" width="137" height="32"/>
                                 <buttonCell key="cell" type="push" title="Stop Recording" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fGu-QZ-BFe">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -44,7 +44,7 @@
                                     <action selector="stopRecord:" target="XfG-lQ-9wD" id="X7R-gq-EeE"/>
                                 </connections>
                             </button>
-                            <pathControl appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAR-1B-EGC">
+                            <pathControl verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FAR-1B-EGC">
                                 <rect key="frame" x="20" y="258" width="415" height="22"/>
                                 <pathCell key="cell" selectable="YES" editable="YES" alignment="left" id="s6e-fG-xxI">
                                     <font key="font" metaFont="system"/>
@@ -52,7 +52,7 @@
                                     <color key="backgroundColor" red="0.89803921568627454" green="0.92549019607843142" blue="0.97254901960784312" alpha="1" colorSpace="deviceRGB"/>
                                 </pathCell>
                             </pathControl>
-                            <button appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QIZ-RX-tMq">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QIZ-RX-tMq">
                                 <rect key="frame" x="14" y="133" width="137" height="32"/>
                                 <buttonCell key="cell" type="push" title="Start Recording" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wfe-na-HGJ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -62,7 +62,7 @@
                                     <action selector="startRecord:" target="XfG-lQ-9wD" id="8GH-qN-WvQ"/>
                                 </connections>
                             </button>
-                            <button appearanceType="aqua" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eHX-BG-Wl6">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eHX-BG-Wl6">
                                 <rect key="frame" x="20" y="233" width="84" height="17"/>
                                 <buttonCell key="cell" type="inline" title="Choose Path" bezelStyle="inline" alignment="center" borderStyle="border" inset="2" id="p3H-uH-yFg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -72,12 +72,25 @@
                                     <action selector="choosePath:" target="XfG-lQ-9wD" id="qs3-db-Kxz"/>
                                 </connections>
                             </button>
+                            <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="CaA-do-l31">
+                                <rect key="frame" x="209" y="118" width="32" height="32"/>
+                            </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bIP-lZ-taj">
+                                <rect key="frame" x="26" y="42" width="217" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Waiting for u...." id="eFK-D9-MOA">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="mPathCtrl" destination="FAR-1B-EGC" id="taL-KI-Vh4"/>
+                        <outlet property="conversionProgress" destination="CaA-do-l31" id="HNh-Ed-3M2"/>
+                        <outlet property="mPathCtrl" destination="FAR-1B-EGC" id="3tl-oo-9AY"/>
                         <outlet property="pathCtrl" destination="m2S-Jp-Qdl" id="rfw-E6-dxr"/>
                         <outlet property="startRecord" destination="Wfe-na-HGJ" id="LH5-3N-k4R"/>
+                        <outlet property="statusLabel" destination="bIP-lZ-taj" id="cvg-fo-Smj"/>
                         <outlet property="stopRecord" destination="wiM-yz-gpk" id="ShZ-US-gCJ"/>
                     </connections>
                 </viewController>

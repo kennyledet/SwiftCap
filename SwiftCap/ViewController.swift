@@ -10,21 +10,44 @@ import Cocoa
 
 class ViewController: NSViewController {
     
-    @IBOutlet var mPathCtrl : NSPathControl
-    var mPath : NSURL = NSURL.fileURLWithPath(NSHomeDirectory().stringByAppendingPathComponent("/Desktop/"))
+    @IBOutlet var mPathCtrl : NSPathControl?
+
+    let mDefaultSavePath = NSURL(fileURLWithPath: NSHomeDirectory().stringByAppendingPathComponent("/Desktop"), isDirectory: true)
+    
     let mRecorder = Recorder()
+
+    @IBOutlet weak var statusLabel: NSTextField!
+
+    @IBOutlet weak var conversionProgress: NSProgressIndicator!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.window?.title = "SwiftCap - Capture Your Mac Screen in .webm"
+        
+        mPathCtrl!.URL = mDefaultSavePath!
+    }
 
     
     @IBAction func startRecord(sender : NSButton) {
-
-        let recordTime = NSTimeInterval(5)
+        self.statusLabel.stringValue = "Started recording...."
         
-        mRecorder.startCapture(mPath, recordTime: recordTime)
+        mRecorder.startCapture(mPathCtrl!.URL!, recordTime: nil)
+
     }
     
     @IBAction func stopRecord(sender : AnyObject) {
+        self.statusLabel.stringValue = "Stopping recording...."
+        
         mRecorder.stopCapture()
+        
+        self.statusLabel.stringValue = "Starting conversion to webm...."
+        self.conversionProgress.startAnimation(self)
+        
         mRecorder.convert(nil)
+        
+
     }
     
     @IBAction func choosePath(sender : AnyObject) {
@@ -32,22 +55,12 @@ class ViewController: NSViewController {
         openPanel.canChooseDirectories = true
         openPanel.canCreateDirectories = false
         openPanel.canChooseFiles = false
+
         if openPanel.runModal() == NSOKButton {
-            mPathCtrl.URL = openPanel.URL
+            mPathCtrl!.URL = openPanel.URL
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        mPathCtrl.URL = mPath
     }
 
-    override var representedObject: AnyObject? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-                                    
-    }
 
 
 }
